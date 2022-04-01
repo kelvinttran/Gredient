@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct CardView: View {
-    let familyMember: FamilyMember
     var body: some View {
         HStack{
-            Text(familyMember.firstName + " " + familyMember.lastName)
+            Text("Kelvin Tran")
                 .font(.title2)
                 .multilineTextAlignment(.leading)
                 .padding()
@@ -21,9 +20,8 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-    static var member = FamilyMember.sampleData[0]
     static var previews: some View {
-        CardView(familyMember: member)
+        CardView()
             .previewLayout(.fixed(width: 400, height: 60))
     }
 }
