@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Allergy" representedClassName=".Allergy" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FMember" inverseName="allergy" inverseEntity="FMember"/>
+    </entity>
     <entity name="FMember" representedClassName=".FMember" syncable="YES">
-        <attribute name="allergies" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
-        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="firstName" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="lastName" optional="YES" attributeType="String"/>
-        <attribute name="restrictions" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="lastName" attributeType="String"/>
+        <relationship name="allergy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Allergy" inverseName="member" inverseEntity="Allergy"/>
+        <relationship name="restriction" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Restriction" inverseName="member" inverseEntity="Restriction"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="firstName"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Restriction" representedClassName=".Restriction" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FMember" inverseName="restriction" inverseEntity="FMember"/>
     </entity>
     <elements>
         <element name="FMember" positionX="-36" positionY="9" width="128" height="104"/>
+        <element name="Allergy" positionX="-27" positionY="45" width="128" height="59"/>
+        <element name="Restriction" positionX="-9" positionY="72" width="128" height="59"/>
     </elements>
 </model>

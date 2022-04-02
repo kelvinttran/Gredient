@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewFamilyMemberView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment (\.presentationMode) var presentationMode
     @State var firstName = ""
     @State var lastName = ""
     @State var allergy = ""
@@ -28,7 +29,21 @@ struct NewFamilyMemberView: View {
                     TextField("Add a Restriction", text: $restriction)
                 }
                 Button(action: {
-                    print("Save member")
+                    let newFamilyMember = FMember(context: viewContext)
+                    newFamilyMember.firstName = self.firstName
+                    newFamilyMember.lastName = self.lastName
+
+                    // TO BE FIXED
+                    //newFamilyMember.allergies.append(self.allergy)
+                    //newFamilyMember.restrictions.append(self.restriction)
+                    newFamilyMember.id = UUID()
+                    do{
+                        try viewContext.save()
+                        print("New Family Member Saved")
+                        presentationMode.wrappedValue.dismiss()
+                    } catch{
+                        print(error.localizedDescription)
+                    }
                 }){
                     Text("Save Family Member")
                 }

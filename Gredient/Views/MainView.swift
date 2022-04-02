@@ -12,7 +12,9 @@ struct MainView: View {
     
     var body: some View {
         TabView(){
-            FamilyView()
+            NavigationView{
+                FamilyView()
+            }
                 .tag(0)
                 .tabItem{
                     Label("Family", systemImage: "person.3")
