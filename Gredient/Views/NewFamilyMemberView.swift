@@ -10,10 +10,13 @@ import SwiftUI
 struct NewFamilyMemberView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment (\.presentationMode) var presentationMode
+
     @State var firstName = ""
     @State var lastName = ""
-    @State var allergy = ""
-    @State var restriction = ""
+    @State var allergyName = ""
+    @State var restrictionName = ""
+    
+    @StateObject var newFMember: FMember
     
     var body: some View {
         NavigationView{
@@ -23,20 +26,16 @@ struct NewFamilyMemberView: View {
                     TextField("Last Name", text: $lastName)
                 }
                 Section(header: Text("Allergies")){
-                    TextField("Add an Allergy", text: $allergy)
+                    TextField("Add an Allergy", text: $allergyName)
                 }
                 Section(header: Text("Restrictions")){
-                    TextField("Add a Restriction", text: $restriction)
+                    TextField("Add a Restriction", text: $restrictionName)
                 }
                 Button(action: {
-                    let newFamilyMember = FMember(context: viewContext)
-                    newFamilyMember.firstName = self.firstName
-                    newFamilyMember.lastName = self.lastName
-
-                    // TO BE FIXED
-                    //newFamilyMember.allergies.append(self.allergy)
-                    //newFamilyMember.restrictions.append(self.restriction)
-                    newFamilyMember.id = UUID()
+                    // DO SOMETHING HERE
+                    newFMember.firstName = self.firstName
+                    newFMember.lastName = self.lastName
+                    
                     do{
                         try viewContext.save()
                         print("New Family Member Saved")
@@ -55,6 +54,11 @@ struct NewFamilyMemberView: View {
 
 struct NewFamilyMemberView_Previews: PreviewProvider {
     static var previews: some View {
-        NewFamilyMemberView()
+        let viewContext = PersistenceController.preview.container.viewContext
+        let newFamilyMember = FMember(context: viewContext)
+        newFamilyMember.firstName = "John"
+        newFamilyMember.lastName = "Appleseed"
+        return NewFamilyMemberView(newFMember: newFamilyMember)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -9,14 +9,16 @@ import SwiftUI
 
 
 struct FamilyMemberView: View {
+    let familyMember: FMember
     
     var body: some View {
-        Text("Hello, World!")
+        Text("Family Member View")
+        
     }
 }
 
 struct FamilyMemberView_Previews: PreviewProvider {
     static var previews: some View {
-        FamilyMemberView()
+        FamilyMemberView(familyMember: FMember())
     }
 }

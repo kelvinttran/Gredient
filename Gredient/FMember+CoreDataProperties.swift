@@ -31,15 +31,15 @@ extension FMember {
     }
     
     public var allergyArray: [Allergy] {
-        let set = allergy as? Set<Allergy> ?? []
-        return set.sorted{
+        let allergySet = allergy as? Set<Allergy> ?? []
+        return allergySet.sorted{
             $0.wrappedName < $1.wrappedName
         }
     }
     
     public var restrictionArray: [Restriction]{
-        let set = restriction as? Set<Restriction> ?? []
-        return set.sorted{
+        let restrictionSet = restriction as? Set<Restriction> ?? []
+        return restrictionSet.sorted{
             $0.wrappedName < $1.wrappedName
         }
     }

@@ -17,7 +17,7 @@ struct MainView: View {
             }
                 .tag(0)
                 .tabItem{
-                    Label("Family", systemImage: "person.3")
+                    Label("My Family", systemImage: "person.3")
                 }
             ScanView()
                 .tag(1)
