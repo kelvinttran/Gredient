@@ -12,8 +12,23 @@ struct FamilyMemberView: View {
     let familyMember: FMember
     
     var body: some View {
-        Text("Family Member View")
-        
+        List{
+            Section(header: Text("Family Member Name")){
+                Text(familyMember.wrappedFirstName)
+                Text(familyMember.wrappedLastName)
+            }
+            Section(header: Text("Allergies")){
+                ForEach(familyMember.allergyArray){allergy in
+                    Text(allergy.wrappedName)
+                }
+            }
+            Section(header: Text("Restrictions")){
+                ForEach(familyMember.restrictionArray){restriction in
+                    Text(restriction.wrappedName)
+                }
+            }
+        }
+        .navigationTitle("Member Details")
     }
 }
 

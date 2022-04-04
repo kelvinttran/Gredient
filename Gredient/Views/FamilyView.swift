@@ -9,66 +9,50 @@ import SwiftUI
 
 struct FamilyView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @FetchRequest(sortDescriptors: []) var familyMembers: FetchedResults<FMember>
+    @FetchRequest(
+        entity: FMember.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \FMember.firstName, ascending: true),
+        ]
+    ) var familyMembers: FetchedResults<FMember>
     @State var showNewFamilyMemberSheet = false
     
     var body: some View {
         VStack {
             List{
                 ForEach(familyMembers, id: \.self){member in
-                    Section(member.wrappedFirstName + " " + member.wrappedLastName){
-                        ForEach(member.allergyArray, id: \.self){allergy in
-                            Text(allergy.wrappedName)
-                        }
+                    NavigationLink(destination: FamilyMemberView(familyMember: member)){
+                        CardView(familyMember: member)
                     }
-                    
                 }
+                .onDelete(perform: removeFMember)
             }
-//            List{
-//                ForEach(familyMembers, id: \.self){ member in
-//                    NavigationLink(destination: FamilyMemberView(familyMember: member)){
-//                        CardView(familyMember: member)
-//                    }
-//                }
-//            }
             .navigationTitle("My Family")
             .navigationBarItems(trailing: Button(action:{
                 print("Add new family member")
-                
                 showNewFamilyMemberSheet = true
             }, label:{
                 Image(systemName: "plus")
                     .imageScale(.large)
             }))
-            .sheet(isPresented: $showNewFamilyMemberSheet){
+            .sheet(isPresented: $showNewFamilyMemberSheet, onDismiss:{
+                print("Sheet dismissed.")
+                print(familyMembers)
+            }){
                 NewFamilyMemberView(newFMember: FMember(context: viewContext))
             }
-            Button("Add"){
-                let newFMember = FMember(context:viewContext)
-                newFMember.firstName = "Michelle"
-                newFMember.lastName = "Tran"
-                
-                let newAllergy = Allergy(context:viewContext)
-                
-                newAllergy.name = "Hazelnuts"
-                newFMember.addToAllergy(newAllergy)
-                
-                let newAllergy2 = Allergy(context:viewContext)
-                newAllergy2.name = "Pecans"
-                newFMember.addToAllergy(newAllergy2)
-                                
-                //let newAllergy = Allergy(context:viewContext)
-                //newAllergy.name = "Hazelnuts"
-                //newAllergy.member = FMember(context: viewContext)
-                //newAllergy.member?.firstName = "Michelle"
-                //newAllergy.member?.lastName = "Tran"
-                
-                //let newRestriction = Restriction(context: viewContext)
-                //newRestriction.name = "Celiac Disease"
-                //newRestriction.member = FMember(context: viewContext)
-                //newRestriction.member?.firstName = "Michelle"
-                //newRestriction.member?.lastName = "Tran"
-            }
+        }
+    }
+    
+    func removeFMember(at offsets: IndexSet){
+        for index in offsets{
+            let familyMember = familyMembers[index]
+            viewContext.delete(familyMember)
+        }
+        do{
+            try viewContext.save()
+        } catch{
+            print("Error saving to viewContext.")
         }
     }
 }
