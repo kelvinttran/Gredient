@@ -32,14 +32,15 @@ struct FamilyView: View {
                 print("Add new family member")
                 showNewFamilyMemberSheet = true
             }, label:{
-                Image(systemName: "plus")
+                Image(systemName: "person.crop.circle.badge.plus")
                     .imageScale(.large)
             }))
             .sheet(isPresented: $showNewFamilyMemberSheet, onDismiss:{
                 print("Sheet dismissed.")
-                print(familyMembers)
+
             }){
-                NewFamilyMemberView(newFMember: FMember(context: viewContext))
+                //NewFamilyMemberView(newFMember: FMember(context: viewContext))
+                NewFamilyMemberView()
             }
         }
     }
@@ -51,6 +52,7 @@ struct FamilyView: View {
         }
         do{
             try viewContext.save()
+            
         } catch{
             print("Error saving to viewContext.")
         }

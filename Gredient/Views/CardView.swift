@@ -19,11 +19,11 @@ struct CardView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewContext = PersistenceController.preview.container.viewContext
-        let member = FMember(context: viewContext)
-        CardView(familyMember: member)
-            .previewLayout(.fixed(width: 400, height: 60))
-    }
-}
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let viewContext = PersistenceController.preview.container.viewContext
+//        let member = FMember(context: viewContext)
+//        CardView(familyMember: "Kelvin Tran")
+//            .previewLayout(.fixed(width: 400, height: 60))
+//    }
+//}
