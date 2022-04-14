@@ -9,25 +9,15 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @Binding var familyMembers: [FamilyMember]
-    let saveAction: ()->Void
     
     var body: some View {
-//        switch viewRouter.currentPage{
-//        case .profilePage:
-//            ProfileView(familyMembers: $familyMembers, saveAction: {})
-//        case .scanPage:
-//            ScanView()
-//        case .historyPage:
-//            HistoryView()
-//        }
         TabView(){
             NavigationView{
-                ProfileView(familyMembers: $familyMembers, saveAction: {})
+                FamilyView()
             }
                 .tag(0)
                 .tabItem{
-                    Label("Profile", systemImage: "person.crop.circle")
+                    Label("My Family", systemImage: "person.3")
                 }
             ScanView()
                 .tag(1)
@@ -41,33 +31,13 @@ struct MainView: View {
                 }
         }
     }
-    
-//    var body: some View {
-//            TabView{
-//                NavigationView{
-//                    ProfileView(familyMembers: $familyMembers, saveAction: {})
-//                }
-//                .tabItem{
-//                    Label("Profile", systemImage:
-//                            "person.crop.circle")
-//                }
-//                ScanView()
-//                    .tabItem{
-//                        Label("Scan", systemImage: "barcode.viewfinder")
-//                    }
-//                HistoryView()
-//                    .tabItem{
-//                        Label("History", systemImage:
-//                                "clock")
-//                    }
-//            }
-//    }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            MainView(familyMembers: .constant(FamilyMember.sampleData), saveAction: {}).environmentObject(ViewRouter())
+            MainView()
+                .environmentObject(ViewRouter())
         }
     }
 }

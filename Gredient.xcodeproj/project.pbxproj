@@ -7,40 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B148A5827F8B09700953684 /* Restriction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B148A5227F8B09700953684 /* Restriction+CoreDataClass.swift */; };
+		5B148A5927F8B09700953684 /* Restriction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B148A5327F8B09700953684 /* Restriction+CoreDataProperties.swift */; };
+		5B148A5A27F8B09700953684 /* Allergy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B148A5427F8B09700953684 /* Allergy+CoreDataClass.swift */; };
+		5B148A5B27F8B09700953684 /* Allergy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B148A5527F8B09700953684 /* Allergy+CoreDataProperties.swift */; };
+		5B148A5C27F8B09700953684 /* FMember+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B148A5627F8B09700953684 /* FMember+CoreDataClass.swift */; };
+		5B148A5D27F8B09700953684 /* FMember+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B148A5727F8B09700953684 /* FMember+CoreDataProperties.swift */; };
+		5B3489E927FB548D0089E241 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3489E827FB548D0089E241 /* CardView.swift */; };
 		5B519E5E27ED31D600F91148 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519E5D27ED31D600F91148 /* HistoryView.swift */; };
 		5B519E6027ED31F300F91148 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519E5F27ED31F300F91148 /* ScanView.swift */; };
 		5B519E6227ED580600F91148 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519E6127ED580600F91148 /* MainView.swift */; };
 		5B74354927F604C90029A659 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74354827F604C90029A659 /* ViewRouter.swift */; };
 		5B74354B27F605910029A659 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74354A27F605910029A659 /* Helper.swift */; };
-		5B74355027F620440029A659 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74354F27F620440029A659 /* CardView.swift */; };
+		5B74355327F629DA0029A659 /* Gredient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B74355127F629DA0029A659 /* Gredient.xcdatamodeld */; };
+		5B74355527F736000029A659 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74355427F735FF0029A659 /* Persistence.swift */; };
+		5B74356327F74F580029A659 /* NewFamilyMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74356227F74F580029A659 /* NewFamilyMemberView.swift */; };
 		5B77F5F027C5521E005D519C /* GredientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B77F5EF27C5521E005D519C /* GredientApp.swift */; };
 		5B77F5F427C55225005D519C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B77F5F327C55225005D519C /* Assets.xcassets */; };
 		5B77F5F727C55225005D519C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B77F5F627C55225005D519C /* Preview Assets.xcassets */; };
-		5BE7894427D79E89003530BF /* FamilyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894327D79E89003530BF /* FamilyMember.swift */; };
-		5BE7894627D7A272003530BF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894527D7A272003530BF /* ProfileView.swift */; };
+		5B7F6018280085CB0029D362 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F6017280085CB0029D362 /* DataController.swift */; };
+		5BE7894627D7A272003530BF /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894527D7A272003530BF /* FamilyView.swift */; };
 		5BE7894827D7A315003530BF /* FamilyMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894727D7A315003530BF /* FamilyMemberView.swift */; };
-		5BE7894A27D7A383003530BF /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894927D7A383003530BF /* Family.swift */; };
 		5BE7895027D7BF7C003530BF /* FamilyMemberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894F27D7BF7C003530BF /* FamilyMemberEditView.swift */; };
-		5BE9AEC927DAB36B00A476EC /* FamilyMemberStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9AEC827DAB36A00A476EC /* FamilyMemberStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B148A5227F8B09700953684 /* Restriction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Restriction+CoreDataClass.swift"; path = "Gredient/Restriction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B148A5327F8B09700953684 /* Restriction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Restriction+CoreDataProperties.swift"; path = "Gredient/Restriction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B148A5427F8B09700953684 /* Allergy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Allergy+CoreDataClass.swift"; path = "Gredient/Allergy+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B148A5527F8B09700953684 /* Allergy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Allergy+CoreDataProperties.swift"; path = "Gredient/Allergy+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B148A5627F8B09700953684 /* FMember+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FMember+CoreDataClass.swift"; path = "Gredient/FMember+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B148A5727F8B09700953684 /* FMember+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FMember+CoreDataProperties.swift"; path = "Gredient/FMember+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B3489E827FB548D0089E241 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5B519E5D27ED31D600F91148 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		5B519E5F27ED31F300F91148 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		5B519E6127ED580600F91148 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5B74354827F604C90029A659 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		5B74354A27F605910029A659 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		5B74354F27F620440029A659 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5B74355227F629DA0029A659 /* Gredient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gredient.xcdatamodel; sourceTree = "<group>"; };
+		5B74355427F735FF0029A659 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		5B74356227F74F580029A659 /* NewFamilyMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFamilyMemberView.swift; sourceTree = "<group>"; };
 		5B77F5EC27C5521E005D519C /* Gredient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gredient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B77F5EF27C5521E005D519C /* GredientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GredientApp.swift; sourceTree = "<group>"; };
 		5B77F5F327C55225005D519C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B77F5F627C55225005D519C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5BE7894327D79E89003530BF /* FamilyMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMember.swift; sourceTree = "<group>"; };
-		5BE7894527D7A272003530BF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5B7F6017280085CB0029D362 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		5BE7894527D7A272003530BF /* FamilyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
 		5BE7894727D7A315003530BF /* FamilyMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberView.swift; sourceTree = "<group>"; };
-		5BE7894927D7A383003530BF /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		5BE7894F27D7BF7C003530BF /* FamilyMemberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberEditView.swift; sourceTree = "<group>"; };
-		5BE9AEC827DAB36A00A476EC /* FamilyMemberStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +71,12 @@
 		5B77F5E327C5521D005D519C = {
 			isa = PBXGroup;
 			children = (
+				5B148A5227F8B09700953684 /* Restriction+CoreDataClass.swift */,
+				5B148A5327F8B09700953684 /* Restriction+CoreDataProperties.swift */,
+				5B148A5427F8B09700953684 /* Allergy+CoreDataClass.swift */,
+				5B148A5527F8B09700953684 /* Allergy+CoreDataProperties.swift */,
+				5B148A5627F8B09700953684 /* FMember+CoreDataClass.swift */,
+				5B148A5727F8B09700953684 /* FMember+CoreDataProperties.swift */,
 				5B77F5EE27C5521E005D519C /* Gredient */,
 				5B77F5ED27C5521E005D519C /* Products */,
 			);
@@ -74,9 +94,12 @@
 			isa = PBXGroup;
 			children = (
 				5B77F5EF27C5521E005D519C /* GredientApp.swift */,
+				5B74355427F735FF0029A659 /* Persistence.swift */,
+				5B74355127F629DA0029A659 /* Gredient.xcdatamodeld */,
 				5B77F62E27C59C61005D519C /* Views */,
 				5B77F5F327C55225005D519C /* Assets.xcassets */,
 				5B77F5F527C55225005D519C /* Preview Content */,
+				5B7F6017280085CB0029D362 /* DataController.swift */,
 			);
 			path = Gredient;
 			sourceTree = "<group>";
@@ -93,13 +116,14 @@
 			isa = PBXGroup;
 			children = (
 				5BE7894227D79E77003530BF /* Models */,
-				5BE7894527D7A272003530BF /* ProfileView.swift */,
+				5BE7894527D7A272003530BF /* FamilyView.swift */,
 				5B519E6127ED580600F91148 /* MainView.swift */,
 				5BE7894727D7A315003530BF /* FamilyMemberView.swift */,
 				5BE7894F27D7BF7C003530BF /* FamilyMemberEditView.swift */,
 				5B519E5D27ED31D600F91148 /* HistoryView.swift */,
-				5B74354F27F620440029A659 /* CardView.swift */,
 				5B519E5F27ED31F300F91148 /* ScanView.swift */,
+				5B74356227F74F580029A659 /* NewFamilyMemberView.swift */,
+				5B3489E827FB548D0089E241 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,9 +131,6 @@
 		5BE7894227D79E77003530BF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5BE7894327D79E89003530BF /* FamilyMember.swift */,
-				5BE7894927D7A383003530BF /* Family.swift */,
-				5BE9AEC827DAB36A00A476EC /* FamilyMemberStore.swift */,
 				5B74354827F604C90029A659 /* ViewRouter.swift */,
 				5B74354A27F605910029A659 /* Helper.swift */,
 			);
@@ -151,7 +172,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B77F5E727C5521D005D519C /* Build configuration list for PBXProject "	" */;
+			buildConfigurationList = 5B77F5E727C5521D005D519C /* Build configuration list for PBXProject "Gredient" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -186,19 +207,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B148A5D27F8B09700953684 /* FMember+CoreDataProperties.swift in Sources */,
 				5B74354927F604C90029A659 /* ViewRouter.swift in Sources */,
 				5B74354B27F605910029A659 /* Helper.swift in Sources */,
 				5B519E6227ED580600F91148 /* MainView.swift in Sources */,
 				5BE7895027D7BF7C003530BF /* FamilyMemberEditView.swift in Sources */,
-				5BE9AEC927DAB36B00A476EC /* FamilyMemberStore.swift in Sources */,
-				5BE7894A27D7A383003530BF /* Family.swift in Sources */,
+				5B7F6018280085CB0029D362 /* DataController.swift in Sources */,
+				5B74356327F74F580029A659 /* NewFamilyMemberView.swift in Sources */,
 				5B519E6027ED31F300F91148 /* ScanView.swift in Sources */,
-				5B74355027F620440029A659 /* CardView.swift in Sources */,
+				5B3489E927FB548D0089E241 /* CardView.swift in Sources */,
 				5B519E5E27ED31D600F91148 /* HistoryView.swift in Sources */,
+				5B148A5827F8B09700953684 /* Restriction+CoreDataClass.swift in Sources */,
+				5B74355527F736000029A659 /* Persistence.swift in Sources */,
+				5B148A5A27F8B09700953684 /* Allergy+CoreDataClass.swift in Sources */,
+				5B148A5B27F8B09700953684 /* Allergy+CoreDataProperties.swift in Sources */,
+				5B148A5C27F8B09700953684 /* FMember+CoreDataClass.swift in Sources */,
+				5B148A5927F8B09700953684 /* Restriction+CoreDataProperties.swift in Sources */,
 				5BE7894827D7A315003530BF /* FamilyMemberView.swift in Sources */,
 				5B77F5F027C5521E005D519C /* GredientApp.swift in Sources */,
-				5BE7894627D7A272003530BF /* ProfileView.swift in Sources */,
-				5BE7894427D79E89003530BF /* FamilyMember.swift in Sources */,
+				5B74355327F629DA0029A659 /* Gredient.xcdatamodeld in Sources */,
+				5BE7894627D7A272003530BF /* FamilyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +414,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B77F5E727C5521D005D519C /* Build configuration list for PBXProject "	" */ = {
+		5B77F5E727C5521D005D519C /* Build configuration list for PBXProject "Gredient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B77F5F827C55225005D519C /* Debug */,
@@ -405,6 +433,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5B74355127F629DA0029A659 /* Gredient.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B74355227F629DA0029A659 /* Gredient.xcdatamodel */,
+			);
+			currentVersion = 5B74355227F629DA0029A659 /* Gredient.xcdatamodel */;
+			path = Gredient.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5B77F5E427C5521D005D519C /* Project object */;
 }

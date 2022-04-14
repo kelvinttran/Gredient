@@ -2,28 +2,28 @@
 //  CardView.swift
 //  Gredient
 //
-//  Created by Kelvin Tran on 2022-03-08.
+//  Created by Kelvin Tran on 2022-04-04.
 //
 
 import SwiftUI
 
 struct CardView: View {
-    let familyMember: FamilyMember
+    let familyMember: FMember
+    
     var body: some View {
-        HStack{
-            Text(familyMember.firstName + " " + familyMember.lastName)
-                .font(.title2)
-                .multilineTextAlignment(.leading)
-                .padding()
-            Spacer()
-        }
+        Text(familyMember.wrappedFirstName + " " + familyMember.wrappedLastName)
+            .font(.title2)
+            .multilineTextAlignment(.leading)
+            .padding()
+        Spacer()
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var member = FamilyMember.sampleData[0]
-    static var previews: some View {
-        CardView(familyMember: member)
-            .previewLayout(.fixed(width: 400, height: 60))
-    }
-}
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let viewContext = PersistenceController.preview.container.viewContext
+//        let member = FMember(context: viewContext)
+//        CardView(familyMember: "Kelvin Tran")
+//            .previewLayout(.fixed(width: 400, height: 60))
+//    }
+//}
