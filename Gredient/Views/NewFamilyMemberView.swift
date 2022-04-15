@@ -46,11 +46,5 @@ struct NewFamilyMemberView: View {
 struct NewFamilyMemberView_Previews: PreviewProvider {
     static var previews: some View {
         NewFamilyMemberView()
-//        let viewContext = PersistenceController.preview.container.viewContext
-//        let newFamilyMember = FMember(context: viewContext)
-//        newFamilyMember.firstName = "John"
-//        newFamilyMember.lastName = "Appleseed"
-//        return NewFamilyMemberView(newFMember: newFamilyMember)
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
