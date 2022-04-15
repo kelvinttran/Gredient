@@ -34,6 +34,7 @@ struct ScanView: View {
 
 //struct ScanView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ScanView(barcode: ["1234567890123"])
+//        let code = ["1234567890123"]
+//        ScanView(barcode: .constant(code))
 //    }
 //}

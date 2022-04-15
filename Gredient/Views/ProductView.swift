@@ -14,6 +14,7 @@ struct ProductData: Decodable {
 struct Product: Decodable{
     var product_name: String
     var ingredients: [Ingredient]
+    var additives_original_tags: [String]
     var image_front_thumb_url: String
     
 }
@@ -23,32 +24,78 @@ struct Ingredient: Decodable{
     var text: String
 }
 
+struct AdditivesData: Decodable, Hashable {
+    var tags: [Additive]
+}
+
+struct Additive: Decodable, Hashable{
+    var id: String
+    var name: String
+}
+
+
+
 struct ProductView: View {
     @Binding var scannedCode: [String]
     @State private var productData: ProductData?
+    @State private var additivesData: AdditivesData?
+    @State private var isLoadingIngredients = false
+    @State private var isLoadingAdditives = false
     
     var body: some View {
         VStack{
-            Text(productData?.product.product_name ?? "product name")
+            Text(productData?.product.product_name ?? "No Product Found")
                 .font(.largeTitle)
                 .fontWeight(.medium)
                 .onAppear(perform: loadData)
                 .padding()
-            Text(scannedCode[0])
+            HStack{
+                Text("Family Members")
+                    .font(.headline)
+                    .multilineTextAlignment(.leading)
+                    .padding()
+                Spacer()
+            }
             
-            List(productData?.product.ingredients ?? [], id: \.id){item in
-                Section(header: Text("Ingredients")){
-                    Text(item.text)
-                        .font(.headline)
+            ZStack {
+                List{
+                    Section(header: Text("Ingredients")){
+                        ForEach(productData?.product.ingredients ?? [], id: \.id){item in
+                            Text(item.text)
+                        }
+                    }
+                }
+                if (isLoadingIngredients){
+                    LoadingView()
                 }
             }
+            
+            ZStack{
+                List{
+                    Section(header: Text("Additives")){
+                        ForEach(additivesData?.tags ?? [], id: \.self){additive in
+                            ForEach(productData?.product.additives_original_tags ?? [], id: \.self){code in
+                                if (code == additive.id){
+                                    Text(additive.name)
+                                }
+                            }
+                        }
+                    }
+                }
+                if (isLoadingAdditives){
+                    LoadingView()
+                }
+            }
+            .onAppear(perform: loadAdditives)
+            
             Spacer()
         }
         
     }
     
     private func loadData(){
-        guard let url = URL(string: "https://world.openfoodfacts.org/api/v0/product/" + scannedCode[0]) else{
+        isLoadingIngredients = true
+        guard let url = URL(string: "https://world.openfoodfacts.org/api/v0/product/" + scannedCode[0] + ".json") else{
             print("Invalid URL")
             return
         }
@@ -60,7 +107,34 @@ struct ProductView: View {
                 }
             }
             print(url)
+            isLoadingIngredients = false
         }.resume()
+    }
+    
+    private func loadAdditives(){
+        isLoadingAdditives = true
+        guard let url = URL(string: "https://world.openfoodfacts.org/additives.json") else{
+            print("Invalid additives URL")
+            return
+        }
+        URLSession.shared.dataTask(with: url){data, response, error in
+            guard let data = data else {return}
+            if let decodedData = try? JSONDecoder().decode(AdditivesData.self, from: data){
+                DispatchQueue.main.async{
+                    self.additivesData = decodedData
+                }
+            }
+            print(url)
+            isLoadingAdditives = false
+        }.resume()
+    }
+}
+
+struct LoadingView: View{
+    var body: some View{
+        ProgressView()
+            .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+            .scaleEffect(2)
     }
 }
 
@@ -70,3 +144,5 @@ struct ProductView_Previews: PreviewProvider {
         ProductView(scannedCode: .constant(code))
     }
 }
+
+

@@ -39,7 +39,6 @@ struct FamilyView: View {
                 print("Sheet dismissed.")
 
             }){
-                //NewFamilyMemberView(newFMember: FMember(context: viewContext))
                 NewFamilyMemberView()
             }
         }
