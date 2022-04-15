@@ -11,19 +11,19 @@ import CodeScanner
 
 struct ScanView: View {
     @State private var isShowingProductView = false
+    @State var barcode: [String]
     
     var body: some View {
         CodeScannerView(codeTypes: [.code128, .code39, .qr ,.ean8, .upce, .ean13 ], simulatedData: "Line1 Info \n Line2 Info", completion: handleScan)
             .sheet(isPresented: $isShowingProductView){
-                ProductView()
+                ProductView(scannedCode: $barcode)
             }
     }
     
     func handleScan(result: Result<ScanResult, ScanError>){
         switch result{
         case .success(let result):
-            let barcode = result.string.components(separatedBy: "\n")
-            print(barcode)
+            self.barcode = result.string.components(separatedBy: "\n")
         
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
@@ -32,8 +32,8 @@ struct ScanView: View {
     }
 }
 
-struct ScanView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScanView()
-    }
-}
+//struct ScanView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScanView(barcode: ["1234567890123"])
+//    }
+//}

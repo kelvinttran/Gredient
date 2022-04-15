@@ -7,44 +7,66 @@
 
 import SwiftUI
 
-struct APIResponse: Codable{
-    var responses: [Response]
+struct ProductData: Decodable {
+    var product: Product
 }
 
-struct Response: Codable{
-    var productName: String
-    var ingredientList: [String]
+struct Product: Decodable{
+    var product_name: String
+    var ingredients: [Ingredient]
+    var image_front_thumb_url: String
+    
+}
+
+struct Ingredient: Decodable{
+    var id: String
+    var text: String
 }
 
 struct ProductView: View {
-
+    @Binding var scannedCode: [String]
+    @State private var productData: ProductData?
     
     var body: some View {
-        Text("Hello World!")
+        VStack{
+            Text(productData?.product.product_name ?? "product name")
+                .font(.largeTitle)
+                .fontWeight(.medium)
+                .onAppear(perform: loadData)
+                .padding()
+            Text(scannedCode[0])
+            
+            List(productData?.product.ingredients ?? [], id: \.id){item in
+                Section(header: Text("Ingredients")){
+                    Text(item.text)
+                        .font(.headline)
+                }
+            }
+            Spacer()
+        }
+        
     }
     
-    
-    func loadData() async{
-        guard let url = URL(string: "https://world.openfoodfacts.org/api/v0/product/0062020003843") else{
+    private func loadData(){
+        guard let url = URL(string: "https://world.openfoodfacts.org/api/v0/product/" + scannedCode[0]) else{
             print("Invalid URL")
             return
         }
-        
-        do{
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let decodedResponse = try? JSONDecoder().decode(APIResponse.self, from: data) {
-                print(decodedResponse)
-                //responses = decodedResponse.responses
+        URLSession.shared.dataTask(with: url){data, response, error in
+            guard let data = data else {return}
+            if let decodedData = try? JSONDecoder().decode(ProductData.self, from: data){
+                DispatchQueue.main.async{
+                    self.productData = decodedData
+                }
             }
-            
-        } catch{
-            print("Invalid data")
-        }
+            print(url)
+        }.resume()
     }
 }
 
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductView()
+        let code = ["1234567890123"]
+        ProductView(scannedCode: .constant(code))
     }
 }
