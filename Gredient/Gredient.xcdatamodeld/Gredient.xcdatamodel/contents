@@ -21,8 +21,8 @@
         <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FMember" inverseName="restriction" inverseEntity="FMember"/>
     </entity>
     <elements>
-        <element name="FMember" positionX="-36" positionY="9" width="128" height="104"/>
         <element name="Allergy" positionX="-27" positionY="45" width="128" height="59"/>
+        <element name="FMember" positionX="-36" positionY="9" width="128" height="104"/>
         <element name="Restriction" positionX="-9" positionY="72" width="128" height="59"/>
     </elements>
 </model>

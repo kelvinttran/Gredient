@@ -33,22 +33,47 @@ struct Additive: Decodable, Hashable{
     var name: String
 }
 
-
-
 struct ProductView: View {
+    @Environment(\.managedObjectContext) var viewContext
+    @FetchRequest(
+        entity: FMember.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \FMember.firstName, ascending: true),
+        ]
+    ) var familyMembers: FetchedResults<FMember>
     @Binding var scannedCode: [String]
     @State private var productData: ProductData?
     @State private var additivesData: AdditivesData?
     @State private var isLoadingIngredients = false
     @State private var isLoadingAdditives = false
-    
+
     var body: some View {
         VStack{
-            Text(productData?.product.product_name ?? "No Product Found")
-                .font(.largeTitle)
-                .fontWeight(.medium)
-                .onAppear(perform: loadData)
-                .padding()
+            HStack{
+                AsyncImage(url: URL(string: productData?.product.image_front_thumb_url ?? "")){phase in
+                    if let image = phase.image{
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .padding()
+                    } else if phase.error != nil {
+                        Text("There was an error loading the image.")
+                    } else{
+                        ProgressView()
+                    }
+                }
+                .frame(width: 150, height: 150)
+
+                Text(productData?.product.product_name ?? "No Product Found")
+                    .font(.largeTitle)
+                    .fontWeight(.medium)
+                    .onAppear(perform: loadData)
+                    .padding()
+
+                Spacer()
+            }
+
             HStack{
                 Text("Family Members")
                     .font(.headline)
@@ -56,7 +81,15 @@ struct ProductView: View {
                     .padding()
                 Spacer()
             }
-            
+
+            HStack{
+                ForEach(familyMembers, id:\.self){member in
+                    Text(member.wrappedFirstName)
+                }
+                Spacer()
+            }
+
+
             ZStack {
                 List{
                     Section(header: Text("Ingredients")){
@@ -69,7 +102,7 @@ struct ProductView: View {
                     LoadingView()
                 }
             }
-            
+
             ZStack{
                 List{
                     Section(header: Text("Additives")){
@@ -87,10 +120,10 @@ struct ProductView: View {
                 }
             }
             .onAppear(perform: loadAdditives)
-            
+
             Spacer()
         }
-        
+
     }
     
     private func loadData(){
