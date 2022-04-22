@@ -11,9 +11,7 @@ import SwiftUI
 struct FamilyMemberView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.dismiss) var dismiss
-    @Environment(\.editMode) var editMode
     
-    @State private var isEditing = false
     
     var familyMember: FetchedResults<FMember>.Element
     
@@ -83,20 +81,7 @@ struct FamilyMemberView: View {
                 }
             }
         }
-        .onChange(of: editMode!.wrappedValue, perform: { value in
-          if value.isEditing {
-             // Entering edit mode (e.g. 'Edit' tapped)
-              isEditing.toggle()
-          } else {
-             // Leaving edit mode (e.g. 'Done' tapped)
-              DataController().editFamilyMember(familyMember: familyMember, firstName: self.firstName, lastName: self.lastName, context: viewContext)
-
-              isEditing.toggle()
-          }
-        })
-        .disabled(!isEditing)
         .navigationTitle("Member Details")
-        .navigationBarItems(trailing: EditButton())
     }
 }
 
