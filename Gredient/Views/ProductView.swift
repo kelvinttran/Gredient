@@ -73,44 +73,26 @@ struct ProductView: View {
 
                 Spacer()
             }
-
-            HStack{
-                Text("Family Members")
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                Spacer()
-            }
-
-            HStack{
-                ForEach(familyMembers, id:\.self){member in
-                    Text(member.wrappedFirstName)
-                }
-                Spacer()
-            }
-
-
-            ZStack {
-                List{
-                    Section(header: Text("Ingredients")){
-                        ForEach(productData?.product.ingredients ?? [], id: \.id){item in
-                            Text(item.text)
+            List{
+                Section(header: Text("Family Members")
+                    .font(.headline)){
+                        ForEach(familyMembers, id:\.self){member in
+                            Text(member.wrappedFirstName)
                         }
+                    }
+                Section(header: Text("Ingredients")){
+                    ForEach(productData?.product.ingredients ?? [], id: \.id){item in
+                        Text(item.text)
                     }
                 }
                 if (isLoadingIngredients){
                     LoadingView()
                 }
-            }
-
-            ZStack{
-                List{
-                    Section(header: Text("Additives")){
-                        ForEach(additivesData?.tags ?? [], id: \.self){additive in
-                            ForEach(productData?.product.additives_original_tags ?? [], id: \.self){code in
-                                if (code == additive.id){
-                                    Text(additive.name)
-                                }
+                Section(header: Text("Additives")){
+                    ForEach(additivesData?.tags ?? [], id: \.self){additive in
+                        ForEach(productData?.product.additives_original_tags ?? [], id: \.self){code in
+                            if (code == additive.id){
+                                Text(additive.name)
                             }
                         }
                     }
@@ -120,8 +102,6 @@ struct ProductView: View {
                 }
             }
             .onAppear(perform: loadAdditives)
-
-            Spacer()
         }
 
     }
