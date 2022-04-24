@@ -1,14 +1,6 @@
-//
-//  FMember+CoreDataProperties.swift
-//  Gredient
-//
-//  Created by Kelvin Tran on 2022-04-02.
-//
-//
-
 import Foundation
 import CoreData
-
+import UIKit
 
 extension FMember {
 
@@ -21,6 +13,8 @@ extension FMember {
     @NSManaged public var lastName: String?
     @NSManaged public var allergy: NSSet?
     @NSManaged public var restriction: NSSet?
+    @NSManaged public var profilePhoto: UIImage?
+    
     
     public var wrappedFirstName: String {
         firstName ?? "Unknown First Name"
@@ -28,6 +22,10 @@ extension FMember {
     
     public var wrappedLastName: String {
         lastName ?? "Unknown Last Name"
+    }
+    
+    public var wrappedProfilePhoto: UIImage{
+        profilePhoto ?? UIImage(named: "blank-avatar")!
     }
     
     public var allergyArray: [Allergy] {
