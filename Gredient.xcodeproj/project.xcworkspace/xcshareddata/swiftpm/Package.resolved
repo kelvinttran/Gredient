@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "codescanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twostraws/CodeScanner",
+      "state" : {
+        "revision" : "c27a66149b7483fe42e2ec6aad61d5c3fffe522d",
+        "version" : "2.1.1"
+      }
+    },
+    {
+      "identity" : "datacapture-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Scandit/datacapture-spm",
+      "state" : {
+        "revision" : "854683db880cbda8d7f118f592f7ed791c169238",
+        "version" : "6.12.1"
+      }
+    }
+  ],
+  "version" : 2
+}

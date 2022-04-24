@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class DataController: ObservableObject {
     // Responsible for preparing a model
@@ -72,6 +73,11 @@ class DataController: ObservableObject {
     func removeRestriction(familyMember: FMember, restriction: Restriction, context:NSManagedObjectContext){
         familyMember.removeFromRestriction(restriction)
         
+        save(context:context)
+    }
+    
+    func updatePhoto(familyMember: FMember, photo: UIImage, context: NSManagedObjectContext){
+        familyMember.profilePhoto = photo
         save(context:context)
     }
 }

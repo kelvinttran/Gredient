@@ -19,7 +19,7 @@ struct MainView: View {
                 .tabItem{
                     Label("My Family", systemImage: "person.3")
                 }
-            ScanView()
+            ScanView(barcode: ["SAMPLE BARCODE"])
                 .tag(1)
                 .tabItem{
                     Label("Scan", systemImage: "barcode.viewfinder")
