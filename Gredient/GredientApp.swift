@@ -13,7 +13,7 @@ struct GredientApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            SplashScreenView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }

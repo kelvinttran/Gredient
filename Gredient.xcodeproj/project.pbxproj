@@ -36,6 +36,7 @@
 		5B8515AB281650B000393ED0 /* FoodProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515A5281650B000393ED0 /* FoodProduct+CoreDataProperties.swift */; };
 		5B8515AC281650B000393ED0 /* ProductIngredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515A6281650B000393ED0 /* ProductIngredient+CoreDataClass.swift */; };
 		5B8515AD281650B000393ED0 /* ProductIngredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515A7281650B000393ED0 /* ProductIngredient+CoreDataProperties.swift */; };
+		5B8515AF281660A400393ED0 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515AE281660A400393ED0 /* SplashScreenView.swift */; };
 		5BE7894627D7A272003530BF /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894527D7A272003530BF /* FamilyView.swift */; };
 		5BE7894827D7A315003530BF /* FamilyMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894727D7A315003530BF /* FamilyMemberView.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		5B8515A5281650B000393ED0 /* FoodProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FoodProduct+CoreDataProperties.swift"; path = "Gredient/FoodProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5B8515A6281650B000393ED0 /* ProductIngredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProductIngredient+CoreDataClass.swift"; path = "Gredient/ProductIngredient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B8515A7281650B000393ED0 /* ProductIngredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProductIngredient+CoreDataProperties.swift"; path = "Gredient/ProductIngredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B8515AE281660A400393ED0 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		5BE7894527D7A272003530BF /* FamilyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
 		5BE7894727D7A315003530BF /* FamilyMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				5B85156028135B9C00393ED0 /* PhotoPicker.swift */,
 				5B85157E2815B8F100393ED0 /* ProductCardView.swift */,
 				5B8515802815BB1400393ED0 /* FoodProductInformationView.swift */,
+				5B8515AE281660A400393ED0 /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			files = (
 				5B8515692814EA2000393ED0 /* FMember+CoreDataProperties.swift in Sources */,
 				5B74354927F604C90029A659 /* ViewRouter.swift in Sources */,
+				5B8515AF281660A400393ED0 /* SplashScreenView.swift in Sources */,
 				5B74354B27F605910029A659 /* Helper.swift in Sources */,
 				5B519E6227ED580600F91148 /* MainView.swift in Sources */,
 				5B21761F2808FDD800F88DC6 /* ProductView.swift in Sources */,
