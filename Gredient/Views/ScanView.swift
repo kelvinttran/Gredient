@@ -24,13 +24,7 @@ struct ScanView: View {
     
     var body: some View {
         CodeScannerView(codeTypes: [.code128, .code39, .qr ,.ean8, .upce, .ean13 ], simulatedData: "Line1 Info \n Line2 Info", completion: handleScan)
-            .sheet(isPresented: $isShowingProductView, onDismiss: {
-//                for famMem in familyMembers{
-//                    DataController().setCheck(familyMember: famMem, value: "", context: viewContext)
-//                    print("Cleared check.")
-//                }
-                print("sheet dismissed")
-            }){
+            .sheet(isPresented: $isShowingProductView){
                 ProductView(scannedCode: $barcode)
             }
     }

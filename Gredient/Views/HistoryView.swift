@@ -15,11 +15,12 @@ struct HistoryView: View {
     ) var foodProducts: FetchedResults<FoodProduct>
     
     @State private var isShowingAlert = false
+    @State private var isPresented = false
     
     var body: some View {
         List{
             ForEach(foodProducts, id: \.self){product in
-                NavigationLink(destination: FoodProductInformationView()){
+                NavigationLink(destination: FoodProductInformationView(foodProduct: product)){
                     ProductCardView(foodProduct: product)
                 }
             }
@@ -71,8 +72,8 @@ struct HistoryView: View {
     }
 }
 
-struct HistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        HistoryView()
-    }
-}
+//struct HistoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HistoryView()
+//    }
+//}

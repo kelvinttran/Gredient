@@ -22,6 +22,16 @@
         <attribute name="barcode" optional="YES" attributeType="String"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
         <attribute name="productName" optional="YES" attributeType="String"/>
+        <relationship name="productAdditives" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductAdditive" inverseName="foodProduct" inverseEntity="ProductAdditive"/>
+        <relationship name="productIngredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductIngredient" inverseName="foodProduct" inverseEntity="ProductIngredient"/>
+    </entity>
+    <entity name="ProductAdditive" representedClassName=".ProductAdditive" syncable="YES">
+        <attribute name="additiveName" optional="YES" attributeType="String"/>
+        <relationship name="foodProduct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodProduct" inverseName="productAdditives" inverseEntity="FoodProduct"/>
+    </entity>
+    <entity name="ProductIngredient" representedClassName=".ProductIngredient" syncable="YES">
+        <attribute name="ingredientName" optional="YES" attributeType="String"/>
+        <relationship name="foodProduct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodProduct" inverseName="productIngredients" inverseEntity="FoodProduct"/>
     </entity>
     <entity name="Restriction" representedClassName=".Restriction" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -30,7 +40,9 @@
     <elements>
         <element name="Allergy" positionX="-27" positionY="45" width="128" height="59"/>
         <element name="FMember" positionX="-36" positionY="9" width="128" height="134"/>
+        <element name="FoodProduct" positionX="27" positionY="108" width="128" height="104"/>
         <element name="Restriction" positionX="-9" positionY="72" width="128" height="59"/>
-        <element name="FoodProduct" positionX="27" positionY="108" width="128" height="74"/>
+        <element name="ProductIngredient" positionX="18" positionY="99" width="128" height="59"/>
+        <element name="ProductAdditive" positionX="27" positionY="126" width="128" height="59"/>
     </elements>
 </model>

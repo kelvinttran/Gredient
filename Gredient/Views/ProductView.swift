@@ -140,13 +140,20 @@ struct ProductView: View {
                     checkAllergies(familyMember: fmember)
                 }
                 if (fmember.restrictionArray.contains(where: {$0.wrappedName == "Celiac Disease"})){
-                    print("THERE IS SSOMEONE WITH CELIAC DISEASE")
                     checkRestrictions(familyMember: fmember)
                 }
                 
             }
             
-            DataController().addFoodProduct(foodProductName: self.productData?.product.product_name ?? "unknown product", foodProductBarcode: scannedCode[0], foodProductImage: self.productData?.product.image_front_thumb_url ?? "unknown image", context: viewContext)
+            DataController().addFoodProduct(
+                foodProductName: self.productData?.product.product_name ?? "Unknown Product Name",
+                foodProductBarcode: self.scannedCode[0],
+                foodProductImage: self.productData?.product.image_front_thumb_url ?? "No Image URL",
+                ingredients: self.productData?.product.ingredients ?? [],
+                additives: self.additivesData?.tags ?? [],
+                context: viewContext
+            )
+
             isLoadingIngredients = false
         }.resume()
     }

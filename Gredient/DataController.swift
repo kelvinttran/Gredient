@@ -81,11 +81,24 @@ class DataController: ObservableObject {
         save(context:context)
     }
     
-    func addFoodProduct(foodProductName: String, foodProductBarcode: String, foodProductImage: String, context: NSManagedObjectContext){
+    func addFoodProduct(foodProductName: String, foodProductBarcode: String, foodProductImage: String, ingredients: [Ingredient], additives: [Additive], context: NSManagedObjectContext){
         let foodProduct = FoodProduct(context: context)
         foodProduct.productName = foodProductName
         foodProduct.barcode = foodProductBarcode
         foodProduct.imageURL = foodProductImage
+        
+        for ingredient in ingredients{
+            let productIngredient = ProductIngredient(context:context)
+            productIngredient.ingredientName = ingredient.text
+            foodProduct.addToProductIngredients(productIngredient)
+        }
+        
+        for additive in additives {
+            let productAdditive = ProductAdditive(context: context)
+            productAdditive.additiveName = additive.name
+            foodProduct.addToProductAdditives(productAdditive)
+        }
+        
         save(context:context)
     }
     
