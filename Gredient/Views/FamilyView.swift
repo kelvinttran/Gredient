@@ -16,7 +16,6 @@ struct FamilyView: View {
         ]
     ) var familyMembers: FetchedResults<FMember>
     @State var showNewFamilyMemberSheet = false
-    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
     
     var body: some View {
         VStack {
@@ -43,9 +42,6 @@ struct FamilyView: View {
                 NewFamilyMemberView()
             }
         }
-        .fullScreenCover(isPresented: $shouldShowOnboarding, content: {
-            Onboarding(shouldShowOnboarding: $shouldShowOnboarding)
-        })
     }
     
     func removeFMember(at offsets: IndexSet){
