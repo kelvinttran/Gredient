@@ -37,6 +37,7 @@
 		5B8515AC281650B000393ED0 /* ProductIngredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515A6281650B000393ED0 /* ProductIngredient+CoreDataClass.swift */; };
 		5B8515AD281650B000393ED0 /* ProductIngredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515A7281650B000393ED0 /* ProductIngredient+CoreDataProperties.swift */; };
 		5B8515AF281660A400393ED0 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515AE281660A400393ED0 /* SplashScreenView.swift */; };
+		5B8515C52816FCB200393ED0 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515C42816FCB200393ED0 /* Onboarding.swift */; };
 		5BE7894627D7A272003530BF /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894527D7A272003530BF /* FamilyView.swift */; };
 		5BE7894827D7A315003530BF /* FamilyMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894727D7A315003530BF /* FamilyMemberView.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		5B8515A6281650B000393ED0 /* ProductIngredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProductIngredient+CoreDataClass.swift"; path = "Gredient/ProductIngredient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B8515A7281650B000393ED0 /* ProductIngredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProductIngredient+CoreDataProperties.swift"; path = "Gredient/ProductIngredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5B8515AE281660A400393ED0 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		5B8515C42816FCB200393ED0 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		5BE7894527D7A272003530BF /* FamilyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
 		5BE7894727D7A315003530BF /* FamilyMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 				5B85157E2815B8F100393ED0 /* ProductCardView.swift */,
 				5B8515802815BB1400393ED0 /* FoodProductInformationView.swift */,
 				5B8515AE281660A400393ED0 /* SplashScreenView.swift */,
+				5B8515C42816FCB200393ED0 /* Onboarding.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				5B74356327F74F580029A659 /* NewFamilyMemberView.swift in Sources */,
 				5B8515AB281650B000393ED0 /* FoodProduct+CoreDataProperties.swift in Sources */,
 				5B519E6027ED31F300F91148 /* ScanView.swift in Sources */,
+				5B8515C52816FCB200393ED0 /* Onboarding.swift in Sources */,
 				5B3489E927FB548D0089E241 /* CardView.swift in Sources */,
 				5B519E5E27ED31D600F91148 /* HistoryView.swift in Sources */,
 				5B8515682814EA2000393ED0 /* FMember+CoreDataClass.swift in Sources */,
