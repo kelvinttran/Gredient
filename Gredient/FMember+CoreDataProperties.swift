@@ -14,6 +14,7 @@ extension FMember {
     @NSManaged public var allergy: NSSet?
     @NSManaged public var restriction: NSSet?
     @NSManaged public var profilePhoto: UIImage?
+    @NSManaged public var checkOrX: String?
     
     
     public var wrappedFirstName: String {
@@ -26,6 +27,10 @@ extension FMember {
     
     public var wrappedProfilePhoto: UIImage{
         profilePhoto ?? UIImage(named: "blank-avatar")!
+    }
+    
+    public var wrappedCheckOrX: String {
+        checkOrX ?? ""
     }
     
     public var allergyArray: [Allergy] {

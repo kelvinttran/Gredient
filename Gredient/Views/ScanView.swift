@@ -10,12 +10,27 @@ import CodeScanner
 
 
 struct ScanView: View {
+    
+    @Environment(\.managedObjectContext) var viewContext
+    @FetchRequest(
+        entity: FMember.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \FMember.firstName, ascending: true),
+        ]
+    ) var familyMembers: FetchedResults<FMember>
+    
     @State private var isShowingProductView = false
     @State var barcode: [String]
     
     var body: some View {
         CodeScannerView(codeTypes: [.code128, .code39, .qr ,.ean8, .upce, .ean13 ], simulatedData: "Line1 Info \n Line2 Info", completion: handleScan)
-            .sheet(isPresented: $isShowingProductView){
+            .sheet(isPresented: $isShowingProductView, onDismiss: {
+//                for famMem in familyMembers{
+//                    DataController().setCheck(familyMember: famMem, value: "", context: viewContext)
+//                    print("Cleared check.")
+//                }
+                print("sheet dismissed")
+            }){
                 ProductView(scannedCode: $barcode)
             }
     }

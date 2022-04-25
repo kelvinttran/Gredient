@@ -29,6 +29,10 @@
 		5B85156128135B9C00393ED0 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85156028135B9C00393ED0 /* PhotoPicker.swift */; };
 		5B8515682814EA2000393ED0 /* FMember+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515662814EA2000393ED0 /* FMember+CoreDataClass.swift */; };
 		5B8515692814EA2000393ED0 /* FMember+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515672814EA2000393ED0 /* FMember+CoreDataProperties.swift */; };
+		5B85157C2815AFAA00393ED0 /* FoodProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515782815AFAA00393ED0 /* FoodProduct+CoreDataClass.swift */; };
+		5B85157D2815AFAA00393ED0 /* FoodProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515792815AFAA00393ED0 /* FoodProduct+CoreDataProperties.swift */; };
+		5B85157F2815B8F100393ED0 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85157E2815B8F100393ED0 /* ProductCardView.swift */; };
+		5B8515812815BB1400393ED0 /* FoodProductInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8515802815BB1400393ED0 /* FoodProductInformationView.swift */; };
 		5BE7894627D7A272003530BF /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894527D7A272003530BF /* FamilyView.swift */; };
 		5BE7894827D7A315003530BF /* FamilyMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894727D7A315003530BF /* FamilyMemberView.swift */; };
 		5BE7895027D7BF7C003530BF /* FamilyMemberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7894F27D7BF7C003530BF /* FamilyMemberEditView.swift */; };
@@ -57,6 +61,10 @@
 		5B85156028135B9C00393ED0 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		5B8515662814EA2000393ED0 /* FMember+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FMember+CoreDataClass.swift"; path = "Gredient/FMember+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B8515672814EA2000393ED0 /* FMember+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FMember+CoreDataProperties.swift"; path = "Gredient/FMember+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B8515782815AFAA00393ED0 /* FoodProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FoodProduct+CoreDataClass.swift"; path = "Gredient/FoodProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B8515792815AFAA00393ED0 /* FoodProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FoodProduct+CoreDataProperties.swift"; path = "Gredient/FoodProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B85157E2815B8F100393ED0 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		5B8515802815BB1400393ED0 /* FoodProductInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodProductInformationView.swift; sourceTree = "<group>"; };
 		5BE7894527D7A272003530BF /* FamilyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
 		5BE7894727D7A315003530BF /* FamilyMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberView.swift; sourceTree = "<group>"; };
 		5BE7894F27D7BF7C003530BF /* FamilyMemberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberEditView.swift; sourceTree = "<group>"; };
@@ -77,6 +85,8 @@
 		5B77F5E327C5521D005D519C = {
 			isa = PBXGroup;
 			children = (
+				5B8515782815AFAA00393ED0 /* FoodProduct+CoreDataClass.swift */,
+				5B8515792815AFAA00393ED0 /* FoodProduct+CoreDataProperties.swift */,
 				5B8515662814EA2000393ED0 /* FMember+CoreDataClass.swift */,
 				5B8515672814EA2000393ED0 /* FMember+CoreDataProperties.swift */,
 				5B148A5227F8B09700953684 /* Restriction+CoreDataClass.swift */,
@@ -132,6 +142,8 @@
 				5B74356227F74F580029A659 /* NewFamilyMemberView.swift */,
 				5B3489E827FB548D0089E241 /* CardView.swift */,
 				5B85156028135B9C00393ED0 /* PhotoPicker.swift */,
+				5B85157E2815B8F100393ED0 /* ProductCardView.swift */,
+				5B8515802815BB1400393ED0 /* FoodProductInformationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,12 +240,16 @@
 				5B519E6227ED580600F91148 /* MainView.swift in Sources */,
 				5B21761F2808FDD800F88DC6 /* ProductView.swift in Sources */,
 				5BE7895027D7BF7C003530BF /* FamilyMemberEditView.swift in Sources */,
+				5B8515812815BB1400393ED0 /* FoodProductInformationView.swift in Sources */,
+				5B85157C2815AFAA00393ED0 /* FoodProduct+CoreDataClass.swift in Sources */,
 				5B7F6018280085CB0029D362 /* DataController.swift in Sources */,
 				5B74356327F74F580029A659 /* NewFamilyMemberView.swift in Sources */,
+				5B85157D2815AFAA00393ED0 /* FoodProduct+CoreDataProperties.swift in Sources */,
 				5B519E6027ED31F300F91148 /* ScanView.swift in Sources */,
 				5B3489E927FB548D0089E241 /* CardView.swift in Sources */,
 				5B519E5E27ED31D600F91148 /* HistoryView.swift in Sources */,
 				5B8515682814EA2000393ED0 /* FMember+CoreDataClass.swift in Sources */,
+				5B85157F2815B8F100393ED0 /* ProductCardView.swift in Sources */,
 				5B148A5827F8B09700953684 /* Restriction+CoreDataClass.swift in Sources */,
 				5B85156128135B9C00393ED0 /* PhotoPicker.swift in Sources */,
 				5B74355527F736000029A659 /* Persistence.swift in Sources */,

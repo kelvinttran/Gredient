@@ -5,6 +5,7 @@
         <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FMember" inverseName="allergy" inverseEntity="FMember"/>
     </entity>
     <entity name="FMember" representedClassName=".FMember" syncable="YES">
+        <attribute name="checkOrX" optional="YES" attributeType="String"/>
         <attribute name="firstName" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="lastName" attributeType="String"/>
@@ -17,13 +18,19 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="FoodProduct" representedClassName=".FoodProduct" syncable="YES">
+        <attribute name="barcode" optional="YES" attributeType="String"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="productName" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Restriction" representedClassName=".Restriction" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FMember" inverseName="restriction" inverseEntity="FMember"/>
     </entity>
     <elements>
         <element name="Allergy" positionX="-27" positionY="45" width="128" height="59"/>
-        <element name="FMember" positionX="-36" positionY="9" width="128" height="119"/>
+        <element name="FMember" positionX="-36" positionY="9" width="128" height="134"/>
         <element name="Restriction" positionX="-9" positionY="72" width="128" height="59"/>
+        <element name="FoodProduct" positionX="27" positionY="108" width="128" height="74"/>
     </elements>
 </model>

@@ -80,4 +80,17 @@ class DataController: ObservableObject {
         familyMember.profilePhoto = photo
         save(context:context)
     }
+    
+    func addFoodProduct(foodProductName: String, foodProductBarcode: String, foodProductImage: String, context: NSManagedObjectContext){
+        let foodProduct = FoodProduct(context: context)
+        foodProduct.productName = foodProductName
+        foodProduct.barcode = foodProductBarcode
+        foodProduct.imageURL = foodProductImage
+        save(context:context)
+    }
+    
+    func setCheck(familyMember: FMember, value: String, context: NSManagedObjectContext){
+        familyMember.checkOrX = value
+        save(context:context)
+    }
 }

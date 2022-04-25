@@ -46,6 +46,7 @@ struct ProductView: View {
     @State private var additivesData: AdditivesData?
     @State private var isLoadingIngredients = false
     @State private var isLoadingAdditives = false
+    @State private var checkOrX = ""
 
     var body: some View {
         VStack{
@@ -77,7 +78,22 @@ struct ProductView: View {
                 Section(header: Text("Family Members")
                     .font(.headline)){
                         ForEach(familyMembers, id:\.self){member in
-                            Text(member.wrappedFirstName)
+                            HStack{
+                                Text(member.wrappedFirstName)
+                                if (member.wrappedCheckOrX == ""){
+                                    LoadingView()
+                                }
+                                else if (member.wrappedCheckOrX == "x.circle.fill"){
+                                    Image(systemName: "\(member.wrappedCheckOrX)")
+                                        .foregroundColor(.red)
+                                }
+                                else{
+                                    Image(systemName: "\(member.wrappedCheckOrX)")
+                                        .foregroundColor(.green)
+                                }
+                                
+                                Spacer()
+                            }
                         }
                     }
                 Section(header: Text("Ingredients")){
@@ -119,7 +135,18 @@ struct ProductView: View {
                     self.productData = decodedData
                 }
             }
-            print(url)
+            for fmember in familyMembers{
+                if (!fmember.allergyArray.isEmpty){
+                    checkAllergies(familyMember: fmember)
+                }
+                if (fmember.restrictionArray.contains(where: {$0.wrappedName == "Celiac Disease"})){
+                    print("THERE IS SSOMEONE WITH CELIAC DISEASE")
+                    checkRestrictions(familyMember: fmember)
+                }
+                
+            }
+            
+            DataController().addFoodProduct(foodProductName: self.productData?.product.product_name ?? "unknown product", foodProductBarcode: scannedCode[0], foodProductImage: self.productData?.product.image_front_thumb_url ?? "unknown image", context: viewContext)
             isLoadingIngredients = false
         }.resume()
     }
@@ -141,6 +168,33 @@ struct ProductView: View {
             isLoadingAdditives = false
         }.resume()
     }
+    
+    private func checkAllergies(familyMember: FMember){
+        DataController().setCheck(familyMember: familyMember, value: "", context: viewContext)
+        for ingredient in productData?.product.ingredients ?? [] {
+            if familyMember.allergyArray.contains(where: {$0.wrappedName.uppercased() == ingredient.text.uppercased()}){
+                DataController().setCheck(familyMember: familyMember, value: "x.circle.fill", context: viewContext)
+                break
+            }
+            else{
+                DataController().setCheck(familyMember: familyMember, value: "checkmark.circle.fill", context: viewContext)
+            }
+        }
+    }
+    
+    private func checkRestrictions(familyMember: FMember){
+        let glutenList = ["Wheat Flour", "Rye", "Barley", "Malt", "Yeast", "Starch"]
+        DataController().setCheck(familyMember: familyMember, value: "", context: viewContext)
+        for ingredient in productData?.product.ingredients ?? [] {
+            if glutenList.contains(where: {$0.uppercased() == ingredient.text.uppercased()}){
+                DataController().setCheck(familyMember: familyMember, value: "x.circle.fill", context: viewContext)
+                break
+            }
+            else{
+                DataController().setCheck(familyMember: familyMember, value: "checkmark.circle.fill", context: viewContext)
+            }
+        }
+    }
 }
 
 struct LoadingView: View{
@@ -157,5 +211,3 @@ struct ProductView_Previews: PreviewProvider {
         ProductView(scannedCode: .constant(code))
     }
 }
-
-
