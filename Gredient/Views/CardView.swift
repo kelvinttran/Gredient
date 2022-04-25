@@ -11,11 +11,20 @@ struct CardView: View {
     let familyMember: FMember
     
     var body: some View {
-        Text(familyMember.wrappedFirstName + " " + familyMember.wrappedLastName)
-            .font(.title2)
-            .multilineTextAlignment(.leading)
-            .padding()
-        Spacer()
+        HStack{
+            Image(uiImage: familyMember.wrappedProfilePhoto )
+                    .resizable()
+                    .scaleEffect()
+                    .frame(width: 80, height: 80)
+                    .clipShape(Circle())
+                    .padding()
+            Text(familyMember.wrappedFirstName + " " + familyMember.wrappedLastName)
+                .font(.title2)
+                .multilineTextAlignment(.leading)
+                .padding()
+            Spacer()
+        }
+        
     }
 }
 

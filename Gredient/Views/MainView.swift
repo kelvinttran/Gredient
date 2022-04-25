@@ -24,7 +24,9 @@ struct MainView: View {
                 .tabItem{
                     Label("Scan", systemImage: "barcode.viewfinder")
                 }
-            HistoryView()
+            NavigationView{
+                HistoryView()
+            }
                 .tag(2)
                 .tabItem{
                     Label("History", systemImage: "clock")

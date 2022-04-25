@@ -10,6 +10,15 @@ import CodeScanner
 
 
 struct ScanView: View {
+    
+    @Environment(\.managedObjectContext) var viewContext
+    @FetchRequest(
+        entity: FMember.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \FMember.firstName, ascending: true),
+        ]
+    ) var familyMembers: FetchedResults<FMember>
+    
     @State private var isShowingProductView = false
     @State var barcode: [String]
     
